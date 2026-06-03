@@ -1,8 +1,7 @@
 import { defineConfig } from 'vitepress'
 
-// base: for GitHub Pages project sites, set this to '/repo-name/'
-// e.g. base: '/engineering-field-notes/'
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/engineering-field-notes/' : '/',
   title: 'Engineering Field Notes',
   description: 'Daily systems topics, explained deeply.',
   cleanUrls: true,
