@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import sidebar from './sidebar.generated'
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/engineering-field-notes/' : '/',
@@ -6,6 +7,7 @@ export default defineConfig({
   description: 'Daily systems topics, explained deeply.',
   cleanUrls: true,
   lastUpdated: true,
+  ignoreDeadLinks: true,
 
   themeConfig: {
     outline: {
@@ -22,57 +24,9 @@ export default defineConfig({
       { text: 'GitHub', link: 'https://github.com/placeholder/engineering-field-notes' },
     ],
 
-    sidebar: [
-      {
-        text: 'Distributed Systems',
-        items: [
-          { text: 'Vector Clocks', link: '/topics/distributed-systems/vector-clocks' },
-          { text: 'Lamport Clocks', link: '/topics/distributed-systems/lamport-clocks' },
-        ],
-      },
-      {
-        text: 'Databases',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'Networking',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'System Design',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'Concurrency',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'Observability',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'Security',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-      {
-        text: 'Software Engineering',
-        items: [
-          { text: 'Coming Soon', link: '#' },
-        ],
-      },
-    ],
+    sidebar: {
+      '/topics/': sidebar,
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/placeholder/engineering-field-notes' },

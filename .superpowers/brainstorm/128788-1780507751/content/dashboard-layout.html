@@ -1,0 +1,102 @@
+<h2>Dashboard Layout Direction</h2>
+<p class="subtitle">Which overall layout approach best matches your vision for the home page?</p>
+
+<div class="cards">
+  <div class="card" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0b0f1a;padding:1rem;border-radius:8px;min-height:280px;font-family:sans-serif;color:#e2e8f0;">
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
+        <div style="flex:1;background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.5rem;">
+          <div style="font-size:0.6rem;color:#818cf8;font-weight:700;">Engineering Field Notes</div>
+          <div style="font-size:0.5rem;color:#94a3b8;margin-top:0.25rem;">Deep dives into systems internals</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.4rem;margin-bottom:0.75rem;">
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#6366f1;">🌐</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Distributed</div>
+          <div style="font-size:0.4rem;color:#64748b;">Systems</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#22c55e;">🗄️</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Databases</div>
+          <div style="font-size:0.4rem;color:#64748b;">Storage</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#f59e0b;">🔌</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Networking</div>
+          <div style="font-size:0.4rem;color:#64748b;">Protocols</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#6366f1;">🏗️</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Design</div>
+          <div style="font-size:0.4rem;color:#64748b;">Architecture</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#22c55e;">⚡</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Concurrency</div>
+          <div style="font-size:0.4rem;color:#64748b;">Threads</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.55rem;color:#f59e0b;">🔍</div>
+          <div style="font-size:0.5rem;font-weight:600;margin-top:0.2rem;">Observability</div>
+          <div style="font-size:0.4rem;color:#64748b;">Tracing</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.4rem;">
+        <div style="flex:2;background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.5rem;font-weight:600;color:#818cf8;margin-bottom:0.3rem;">Recently Added</div>
+          <div style="display:flex;flex-direction:column;gap:0.25rem;">
+            <div style="font-size:0.45rem;color:#94a3b8;">Vector Clocks · Intermediate · 8 min</div>
+            <div style="font-size:0.45rem;color:#94a3b8;">Lamport Clocks · Beginner · 5 min</div>
+          </div>
+        </div>
+        <div style="flex:1;background:#111827;border:1px solid #1e293b;border-radius:6px;padding:0.4rem;">
+          <div style="font-size:0.5rem;font-weight:600;color:#818cf8;margin-bottom:0.3rem;">Widgets</div>
+          <div style="font-size:0.4rem;color:#64748b;">Streak · Tags<br>Roadmap</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Compact Dashboard (Recommended)</h3>
+      <p>Dense card grid with right rail widgets. Feels like a learning platform dashboard. Maximum information density while remaining readable.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="spacious" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0b0f1a;padding:1rem;border-radius:8px;min-height:280px;font-family:sans-serif;color:#e2e8f0;">
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div style="font-size:0.7rem;font-weight:700;color:#818cf8;">Engineering Field Notes</div>
+        <div style="font-size:0.5rem;color:#94a3b8;">Deep dives into systems internals</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;margin-bottom:0.8rem;">
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:0.6rem;">
+          <div style="font-size:0.6rem;color:#6366f1;">🌐 Distributed Systems</div>
+          <div style="font-size:0.45rem;color:#64748b;margin-top:0.3rem;">Consensus, replication, vector clocks...</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:0.6rem;">
+          <div style="font-size:0.6rem;color:#22c55e;">🗄️ Databases</div>
+          <div style="font-size:0.45rem;color:#64748b;margin-top:0.3rem;">Storage engines, query optimization...</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:0.6rem;">
+          <div style="font-size:0.6rem;color:#f59e0b;">🔌 Networking</div>
+          <div style="font-size:0.45rem;color:#64748b;margin-top:0.3rem;">TCP, HTTP, DNS, load balancing...</div>
+        </div>
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:0.6rem;">
+          <div style="font-size:0.6rem;color:#6366f1;">🏗️ System Design</div>
+          <div style="font-size:0.45rem;color:#64748b;margin-top:0.3rem;">Architecture patterns, scalability...</div>
+        </div>
+      </div>
+      <div style="background:#111827;border:1px solid #1e293b;border-radius:8px;padding:0.6rem;">
+        <div style="font-size:0.55rem;font-weight:600;color:#818cf8;margin-bottom:0.4rem;">Recently Added</div>
+        <div style="display:flex;gap:0.4rem;">
+          <div style="flex:1;font-size:0.45rem;color:#94a3b8;padding:0.3rem;background:#0f172a;border-radius:4px;">Vector Clocks</div>
+          <div style="flex:1;font-size:0.45rem;color:#94a3b8;padding:0.3rem;background:#0f172a;border-radius:4px;">Lamport Clocks</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Spacious &amp; Clean</h3>
+      <p>Larger cards with more breathing room. Feels like a modern documentation site. Less dense, more whitespace, easier to scan at a glance.</p>
+    </div>
+  </div>
+</div>

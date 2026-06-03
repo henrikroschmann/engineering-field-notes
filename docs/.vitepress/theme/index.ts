@@ -6,6 +6,12 @@ import CausalCompare from './components/CausalCompare.vue'
 import MiniQuiz from './components/MiniQuiz.vue'
 import CodeRunner from './components/CodeRunner.vue'
 import MermaidDiagram from './components/MermaidDiagram.vue'
+import HomeDashboard from './components/HomeDashboard.vue'
+import TopicLayout from './components/TopicLayout.vue'
+import TodayTopic from './components/TodayTopic.vue'
+import LearningStreak from './components/LearningStreak.vue'
+import TopTags from './components/TopTags.vue'
+import RoadmapWidget from './components/RoadmapWidget.vue'
 
 export default {
   extends: DefaultTheme,
@@ -15,5 +21,11 @@ export default {
     app.component('MiniQuiz', MiniQuiz)
     app.component('CodeRunner', CodeRunner)
     app.component('MermaidDiagram', MermaidDiagram)
+    app.component('HomeDashboard', HomeDashboard)
+    app.component('TopicLayout', TopicLayout)
+    app.component('TodayTopic', TodayTopic)
+    app.component('LearningStreak', LearningStreak)
+    app.component('TopTags', TopTags)
+    app.component('RoadmapWidget', RoadmapWidget)
   },
 } satisfies Theme
