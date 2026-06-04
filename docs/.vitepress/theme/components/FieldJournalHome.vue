@@ -124,6 +124,7 @@ const upcomingNotes = [
 
 <style scoped>
 .field-home {
+  --field-home-accent: #0369a1;
   --field-home-text: #f8fafc;
   --field-home-muted: #d7e0ec;
   --field-home-faint: #b6c2d1;
@@ -131,6 +132,10 @@ const upcomingNotes = [
   width: min(1180px, calc(100vw - 48px));
   margin: 0 auto;
   padding: 48px 0 72px;
+}
+
+:global(.dark) .field-home {
+  --field-home-accent: #7dd3fc;
 }
 
 .field-home__hero {
@@ -159,7 +164,7 @@ const upcomingNotes = [
 
 .field-home__eyebrow {
   margin: 0 0 14px;
-  color: #7dd3fc;
+  color: var(--field-home-accent);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.16em;

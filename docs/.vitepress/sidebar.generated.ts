@@ -45,6 +45,10 @@ export const sidebar = [
         "link": "/topics/distributed-systems/circuit-breaker"
       },
       {
+        "text": "Lease-Based Distributed Locks: Why Time Beats Voting",
+        "link": "/topics/distributed-systems/lease-based-distributed-locks"
+      },
+      {
         "text": "Vector Clocks",
         "link": "/topics/distributed-systems/vector-clocks"
       }
