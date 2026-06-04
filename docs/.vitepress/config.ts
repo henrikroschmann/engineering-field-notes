@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import sidebar from './sidebar.generated'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/engineering-field-notes/' : '/',
+  base: process.env.VITEPRESS_BASE ?? '/',
   title: 'Engineering Field Notes',
   description: 'Daily systems topics, explained deeply.',
   cleanUrls: true,
