@@ -101,6 +101,16 @@ html {
   color: var(--vp-c-text-1);
 }
 
+.VPDoc .field-home h2 {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.VPDoc .field-home h3 {
+  margin-top: 0;
+}
+
 .VPDoc p {
   line-height: 1.75;
   color: var(--vp-c-text-2);
