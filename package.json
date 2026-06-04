@@ -1,9 +1,11 @@
 {
   "type": "module",
   "devDependencies": {
+    "@types/node": "^25.9.1",
     "mermaid": "^11.12.1",
+    "tsx": "^4.7.0",
     "vitepress": "^1.6.4",
-    "tsx": "^4.7.0"
+    "vitest": "^1.6.0"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -11,6 +13,7 @@
     "docs:preview": "vitepress preview docs",
     "topic:validate": "tsx scripts/validate-topic.ts",
     "topic:ingest": "tsx scripts/ingest-topic.ts",
-    "topic:sidebar": "tsx scripts/generate-sidebar.ts"
+    "topic:sidebar": "tsx scripts/generate-sidebar.ts",
+    "test": "vitest run"
   }
 }

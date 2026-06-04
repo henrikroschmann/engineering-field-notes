@@ -1,25 +1,15 @@
 <script setup lang="ts">
 import { withBase } from 'vitepress'
 
-const featuredNote = {
-  issue: 'Field Note 008',
-  title: 'Vector Clocks',
-  subtitle: 'How systems track causality without pretending global time exists.',
-  category: 'Distributed Systems',
-  level: 'Intermediate',
-  date: 'Jun 03, 2026',
-  readTime: '8 min read',
-  summary: 'Vector clocks replace wall-clock certainty with explicit causal history. They tell you when events are ordered, when they are equal, and when the system must admit concurrency.',
-  link: '/topics/distributed-systems/vector-clocks',
-}
-
 const latestNotes = [
-  { title: 'Lease-Based Distributed Locks', date: 'Jun 04', category: 'Distributed Systems', level: 'Intermediate', readTime: '9 min', summary: 'Fast coordination with expiration, renewal, fencing, and the failure modes that make leases dangerous.', link: '/topics/distributed-systems/lease-based-distributed-locks' },
+  { issue: 'Field Note 009', title: 'Lease-Based Distributed Locks', subtitle: 'Coordination with expiration, renewal, and fencing under failure.', date: 'Jun 04, 2026', category: 'Distributed Systems', level: 'Intermediate', readTime: '9 min read', summary: 'Leases make distributed locks practical by bounding ownership in time, but correctness still depends on renewal windows, fencing tokens, clock assumptions, and failure handling.', link: '/topics/distributed-systems/lease-based-distributed-locks' },
   { title: 'Vector Clocks', date: 'Jun 03', category: 'Distributed Systems', level: 'Intermediate', readTime: '8 min', summary: 'Causal ordering without synchronized clocks using per-process vector timestamps.', link: '/topics/distributed-systems/vector-clocks' },
   { title: 'MVCC in Databases', date: 'Jun 01', category: 'Databases', level: 'Intermediate', readTime: '10 min', summary: 'Multi-version concurrency control lets readers and writers proceed without blocking each other.', link: '/topics/databases/mvcc' },
   { title: 'Bloom Filters', date: 'May 30', category: 'Algorithms', level: 'Intermediate', readTime: '7 min', summary: 'Probabilistic set membership with fixed memory and controlled false positives.', link: '/topics/algorithms/bloom-filter' },
   { title: 'Circuit Breaker', date: 'May 28', category: 'Distributed Systems', level: 'Beginner', readTime: '6 min', summary: 'Stop cascading failures by turning repeated downstream errors into an explicit state machine.', link: '/topics/distributed-systems/circuit-breaker' },
 ]
+
+const featuredNote = latestNotes[0]
 
 const systemsIndex = [
   { label: 'Distributed Systems', count: 3, description: 'Causality, coordination, replication, and failure semantics.', link: '/topics/distributed-systems/vector-clocks' },

@@ -32,17 +32,21 @@ Additionally, smart circuit breakers use exponential backoff on the timeout itse
 
 ## Minimal Example
 
-```python
-# Naive (wrong) - allows all requests in half-open
-if time_since_open > timeout:
-    state = HALF_OPEN
-    return allow_request()  # Everyone gets through!
+```csharp
+// Naive (wrong) - allows all requests in half-open
+if (timeSinceOpen > timeout)
+{
+    state = CircuitState.HalfOpen;
+    return AllowRequest(); // Everyone gets through!
+}
 
-# Correct - single probe via atomic check
-if time_since_open > timeout:
-    if atomic_compare_and_swap(state, OPEN, HALF_OPEN):
-        return allow_request()  # Only winner proceeds
-    return reject_request()
+// Correct - single probe via atomic check
+if (timeSinceOpen > timeout)
+{
+    if (Interlocked.CompareExchange(ref state, CircuitState.HalfOpen, CircuitState.Open) == CircuitState.Open)
+        return AllowRequest(); // Only winner proceeds
+    return RejectRequest();
+}
 ```
 
 ## Why This Matters

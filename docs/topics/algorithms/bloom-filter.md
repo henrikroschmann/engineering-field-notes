@@ -37,15 +37,21 @@ The magic: multiple elements can hash to overlapping positions, causing false po
 
 ## Minimal Example
 
-```python
-# A filter with 1000 bits, 3 hash functions
-# After inserting "alice", "bob", "charlie"
-# Querying "dave" might return True (false positive)
-# if dave's hashes all land on bits set by alice/bob/charlie
+```csharp
+// A filter with 1000 bits, 3 hash functions
+var filter = new BloomFilter(numBits: 1000, numHashFunctions: 3);
 
-# The false positive rate formula:
-# P ≈ (1 - e^(-kn/m))^k
-# where n = elements, m = bits, k = hash functions
+filter.Add("alice");
+filter.Add("bob");
+filter.Add("charlie");
+
+bool maybeExists = filter.MightContain("dave");
+// might be true (false positive) if dave's hashes all land on bits
+// set by alice/bob/charlie
+
+// The false positive rate formula:
+// P ≈ (1 - e^(-kn/m))^k
+// where n = elements, m = bits, k = hash functions
 ```
 
 ## Why This Matters

@@ -61,8 +61,6 @@ if acquired:
 
 The Lua script is critical — without it, there's a race condition where another worker could acquire the lock between your get and delete checks.
 
-<CodeRunner :initial-code="`import redis\nr = redis.Redis()\nlock_key = 'order:process:1234'\nacquired = r.set(lock_key, 'worker-7', nx=True, ex=30)\nprint('Lock acquired:', acquired)`" />
-
 ## Why This Matters
 
 Lease-based locks are dramatically faster than consensus locks because they avoid the 2-3 round trips of leader election and commit phases. A lease grant is a single write to one node — sub-millisecond in LAN environments. But speed comes with tradeoffs: if the coordinator itself crashes, the lock becomes unavailable until failover completes. Also, clock skew between holder and coordinator can cause premature expiration or late detection of dead holders.

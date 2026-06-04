@@ -36,16 +36,18 @@ Databases solve this with modified replacement policies:
 
 ## Minimal Example
 
-```sql
--- This sequential scan poisons a naive LRU buffer pool:
-SELECT COUNT(*) FROM orders WHERE created_at > '2026-01-01';
+```csharp
+// This sequential scan poisons a naive LRU buffer pool:
+var count = await connection.QuerySingleAsync<int>(
+    "SELECT COUNT(*) FROM orders WHERE created_at > @date",
+    new { date = new DateTime(2026, 1, 1) });
 
--- After this runs, your buffer pool is full of order pages
--- that will never be accessed again. Your hot customer data
--- has been evicted to disk.
+// After this runs, your buffer pool is full of order pages
+// that will never be accessed again. Your hot customer data
+// has been evicted to disk.
 
--- With CLOCK or two-queue, those scan pages get evicted
--- quickly, preserving your frequently-accessed indexes.
+// With CLOCK or two-queue, those scan pages get evicted
+// quickly, preserving your frequently-accessed indexes.
 ```
 
 ## Why This Matters

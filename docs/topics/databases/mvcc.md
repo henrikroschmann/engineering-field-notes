@@ -34,11 +34,16 @@ The database maintains a "committed transaction map" in shared memory. When chec
 
 ## Minimal Example
 
-```
--- Transaction A starts (snapshot = 100)
--- Transaction B inserts row with xmin=101, commits
--- Transaction A SELECTs -> row NOT visible (101 > 100)
--- Transaction A sees a consistent view of the past
+```csharp
+// Transaction A starts (snapshot = 100)
+using var txA = await connection.BeginTransactionAsync();
+
+// Transaction B inserts row with xmin=101, commits
+await connection.ExecuteAsync("INSERT INTO events (data) VALUES (@data)", new { data = "hello" });
+
+// Transaction A SELECTs -> row NOT visible (101 > 100)
+var rows = await connection.QueryAsync("SELECT * FROM events", transaction: txA);
+// Transaction A sees a consistent view of the past - row from B is invisible
 ```
 
 ## Why This Matters

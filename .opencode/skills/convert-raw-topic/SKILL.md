@@ -108,10 +108,10 @@ Auto-inject components based on content keywords:
 | Keywords in Content | Components to Inject | Placement |
 |---|---|---|
 | "vector clock", "causal" | `<VectorClockSimulator />` + `<CausalCompare :initial-a="[1,2,0]" :initial-b="[0,0,2]" />` | After `## Minimal Example` |
-| Code examples (code blocks) | `<CodeRunner :initial-code="..." />` | After interactive components |
+| Browser-runnable JavaScript/TypeScript code examples only | `<CodeRunner :initial-code="..." />` | After interactive components |
 | "mermaid", "diagram" | `<MermaidDiagram />` | After relevant section |
 
-For `<CodeRunner>`, extract the most relevant code snippet from the raw file and inject it as the `:initial-code` prop.
+For `<CodeRunner>`, extract the most relevant browser-runnable JavaScript or TypeScript snippet from the raw file and inject it as the `:initial-code` prop. Do not wrap Python, shell, SQL, Redis client examples, pseudocode, or code that needs server-side dependencies in `<CodeRunner>`; leave those as fenced code blocks.
 
 ## Level Detection
 

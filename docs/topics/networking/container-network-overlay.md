@@ -38,13 +38,17 @@ There's also a CPU tax: each packet goes through an extra encapsulation/decapsul
 
 ## Minimal Example
 
-```bash
-# On Node B, watch overlay traffic hit the physical interface
-tcpdump -i eth0 -n udp port 4789
+```csharp
+// Simulate cross-node pod communication and measure overlay overhead
+var stopwatch = Stopwatch.StartNew();
 
-# You'll see outer packets arriving from Node A's real IP,
-# carrying encapsulated pod traffic inside VXLAN headers.
-# The inner source/dest IPs are invisible without decapsulation.
+using var client = new HttpClient { BaseAddress = new Uri("http://10.244.2.15:8080") };
+var response = await client.GetAsync("/health");
+
+stopwatch.Stop();
+Console.WriteLine($"Round-trip latency: {stopwatch.Elapsed.TotalMilliseconds:F2}ms");
+// The extra 0.1-0.5ms per hop comes from VXLAN encapsulation/decapsulation
+// Every packet gets ~50 bytes of overhead (IP + UDP + VXLAN headers)
 ```
 
 Compare two CNIs on the same cluster:
