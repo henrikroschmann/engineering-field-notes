@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withBase } from 'vitepress'
+
 const featuredNote = {
   issue: 'Field Note 008',
   title: 'Vector Clocks',
@@ -45,7 +47,7 @@ const upcomingNotes = [
           and the operational takeaway in the same place.
         </p>
         <div class="field-home__actions">
-          <a class="field-home__primary" :href="featuredNote.link">Read the featured note</a>
+          <a class="field-home__primary" :href="withBase(featuredNote.link)">Read the featured note</a>
           <a class="field-home__secondary" href="#latest-notes">Browse latest notes</a>
         </div>
       </div>
@@ -55,7 +57,7 @@ const upcomingNotes = [
           <span>{{ featuredNote.issue }}</span>
           <span>{{ featuredNote.date }}</span>
         </div>
-        <a :href="featuredNote.link">
+        <a :href="withBase(featuredNote.link)">
           <h2>{{ featuredNote.title }}</h2>
         </a>
         <p class="field-home__feature-subtitle">{{ featuredNote.subtitle }}</p>
@@ -69,7 +71,7 @@ const upcomingNotes = [
 
       <aside class="field-home__rail" aria-label="Latest notes">
         <h2>Latest</h2>
-        <a v-for="note in latestNotes.slice(0, 4)" :key="note.title" :href="note.link" class="field-home__rail-item">
+        <a v-for="note in latestNotes.slice(0, 4)" :key="note.title" :href="withBase(note.link)" class="field-home__rail-item">
           <span>{{ note.date }}</span>
           <strong>{{ note.title }}</strong>
         </a>
@@ -82,7 +84,7 @@ const upcomingNotes = [
         <h2>Recent observations</h2>
       </div>
       <div class="field-home__note-grid">
-        <a v-for="note in latestNotes" :key="note.title" :href="note.link" class="field-home__note-card">
+        <a v-for="note in latestNotes" :key="note.title" :href="withBase(note.link)" class="field-home__note-card">
           <span class="field-home__note-category">{{ note.category }}</span>
           <h3>{{ note.title }}</h3>
           <p>{{ note.summary }}</p>
@@ -100,7 +102,7 @@ const upcomingNotes = [
         <p class="field-home__eyebrow">Systems Index</p>
         <h2>Browse by operating surface</h2>
         <div class="field-home__index-grid">
-          <a v-for="item in systemsIndex" :key="item.label" :href="item.link" class="field-home__index-card">
+          <a v-for="item in systemsIndex" :key="item.label" :href="withBase(item.link)" class="field-home__index-card">
             <div>
               <h3>{{ item.label }}</h3>
               <p>{{ item.description }}</p>
@@ -122,6 +124,10 @@ const upcomingNotes = [
 
 <style scoped>
 .field-home {
+  --field-home-text: #e5edf8;
+  --field-home-muted: #a6b5c8;
+  --field-home-faint: #64748b;
+
   width: min(1180px, calc(100vw - 48px));
   margin: 0 auto;
   padding: 48px 0 72px;
@@ -170,7 +176,7 @@ const upcomingNotes = [
 .field-home h1 {
   max-width: 680px;
   margin-bottom: 18px;
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
   font-size: clamp(3rem, 8vw, 5.8rem);
   line-height: 0.92;
   letter-spacing: -0.075em;
@@ -178,7 +184,7 @@ const upcomingNotes = [
 
 .field-home__dek {
   max-width: 620px;
-  color: var(--vp-c-text-2);
+  color: var(--field-home-muted);
   font-size: 1.1rem;
   line-height: 1.7;
 }
@@ -203,7 +209,7 @@ const upcomingNotes = [
   min-height: 40px;
   padding: 0 16px;
   border: 1px solid rgba(125, 211, 252, 0.38);
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -224,7 +230,7 @@ const upcomingNotes = [
 
 .field-home__feature-meta,
 .field-home__meta-row {
-  color: var(--vp-c-text-3);
+  color: var(--field-home-faint);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -232,7 +238,7 @@ const upcomingNotes = [
 
 .field-home__feature h2 {
   margin: 18px 0 10px;
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -247,13 +253,13 @@ const upcomingNotes = [
 .field-home__feature p,
 .field-home__note-card p,
 .field-home__index-card p {
-  color: var(--vp-c-text-2);
+  color: var(--field-home-muted);
   line-height: 1.65;
 }
 
 .field-home__rail h2 {
   margin-bottom: 14px;
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -269,13 +275,13 @@ const upcomingNotes = [
 }
 
 .field-home__rail-item span {
-  color: var(--vp-c-text-3);
+  color: var(--field-home-faint);
   font-size: 0.72rem;
   text-transform: uppercase;
 }
 
 .field-home__rail-item strong {
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
   font-size: 0.95rem;
 }
 
@@ -305,13 +311,13 @@ const upcomingNotes = [
   min-height: 260px;
   flex-direction: column;
   padding: 22px;
-  color: inherit;
+  color: var(--field-home-text);
   text-decoration: none;
 }
 
 .field-home__note-card h3,
 .field-home__index-card h3 {
-  color: var(--vp-c-text-1);
+  color: var(--field-home-text);
 }
 
 .field-home__note-card p {
@@ -344,7 +350,7 @@ const upcomingNotes = [
   justify-content: space-between;
   gap: 18px;
   padding: 20px;
-  color: inherit;
+  color: var(--field-home-text);
   text-decoration: none;
 }
 
@@ -366,7 +372,7 @@ const upcomingNotes = [
 .field-home__queue li {
   padding: 13px 0;
   border-top: 1px solid rgba(148, 163, 184, 0.16);
-  color: var(--vp-c-text-2);
+  color: var(--field-home-muted);
 }
 
 @media (max-width: 1080px) {
