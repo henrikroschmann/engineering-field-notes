@@ -78,14 +78,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.VPDoc :deep(h1) {
+.VPDoc h1 {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--vp-c-text-1);
 }
 
-.VPDoc :deep(h2) {
+.VPDoc h2 {
   font-weight: 600;
   letter-spacing: -0.01em;
   border-bottom: 1px solid var(--vp-c-divider);
@@ -94,25 +94,68 @@ html {
   color: var(--vp-c-text-1);
 }
 
-.VPDoc :deep(h3) {
+.VPDoc h3 {
   font-weight: 600;
   letter-spacing: -0.005em;
   margin-top: 2em;
   color: var(--vp-c-text-1);
 }
 
-.VPDoc :deep(p) {
+.VPDoc p {
   line-height: 1.75;
   color: var(--vp-c-text-2);
 }
 
-.VPDoc :deep(a) {
+.VPDoc a {
   color: var(--vp-c-brand-1);
   text-decoration-color: transparent;
 }
 
-.VPDoc :deep(a:hover) {
+.VPDoc a:hover {
   text-decoration-color: var(--vp-c-brand-1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Editorial Ledger prose                                            */
+/* ------------------------------------------------------------------ */
+
+.vp-doc {
+  font-size: 1rem;
+}
+
+.vp-doc h2 {
+  margin-top: 2.8em;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  color: var(--vp-c-text-1);
+  font-size: 1.55rem;
+  letter-spacing: -0.035em;
+}
+
+.vp-doc h2::before {
+  content: 'Field Note';
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--vp-c-brand-2);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.vp-doc h3 {
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc p,
+.vp-doc li {
+  color: var(--vp-c-text-2);
+  line-height: 1.8;
+}
+
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-brand-2);
+  background: var(--vp-c-brand-soft);
+  padding: 0.8rem 1.1rem;
 }
 
 /* ------------------------------------------------------------------ */
