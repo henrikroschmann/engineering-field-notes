@@ -106,7 +106,7 @@ withDefaults(defineProps<{
 }
 
 .topic-ledger__meta span {
-  border: 1px solid rgba(125, 211, 252, 0.26);
+  border: 1px solid var(--topic-ledger-module-border);
   padding: 4px 9px;
   color: var(--vp-c-text-2);
   font-size: 0.72rem;
@@ -118,8 +118,8 @@ withDefaults(defineProps<{
 .topic-ledger__takeaway {
   margin: 28px 0;
   padding: 22px 24px;
-  border: 1px solid rgba(125, 211, 252, 0.24);
-  border-left: 4px solid #38bdf8;
+  border: 1px solid var(--topic-ledger-module-border);
+  border-left: 4px solid var(--topic-ledger-accent);
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(79, 70, 229, 0.08));
 }
 
