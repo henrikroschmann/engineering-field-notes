@@ -124,9 +124,9 @@ const upcomingNotes = [
 
 <style scoped>
 .field-home {
-  --field-home-text: #e5edf8;
-  --field-home-muted: #a6b5c8;
-  --field-home-faint: #64748b;
+  --field-home-text: #f8fafc;
+  --field-home-muted: #d7e0ec;
+  --field-home-faint: #b6c2d1;
 
   width: min(1180px, calc(100vw - 48px));
   margin: 0 auto;
@@ -148,7 +148,7 @@ const upcomingNotes = [
 .field-home__note-card,
 .field-home__index-card,
 .field-home__queue {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.68));
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
   border: 1px solid rgba(148, 163, 184, 0.18);
   box-shadow: 0 24px 80px rgba(2, 6, 23, 0.26);
 }
