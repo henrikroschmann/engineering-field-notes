@@ -51,8 +51,18 @@ withDefaults(defineProps<{
 
 <style scoped>
 .topic-ledger {
+  --topic-ledger-accent: #0369a1;
+  --topic-ledger-module-bg: rgba(14, 165, 233, 0.08);
+  --topic-ledger-module-border: rgba(3, 105, 161, 0.22);
+
   max-width: 840px;
   margin: 0 auto;
+}
+
+:global(.dark) .topic-ledger {
+  --topic-ledger-accent: #7dd3fc;
+  --topic-ledger-module-bg: rgba(15, 23, 42, 0.56);
+  --topic-ledger-module-border: rgba(148, 163, 184, 0.18);
 }
 
 .topic-ledger__header {
@@ -65,7 +75,7 @@ withDefaults(defineProps<{
 .topic-ledger__takeaway span {
   display: block;
   margin: 0 0 14px;
-  color: #7dd3fc;
+  color: var(--topic-ledger-accent);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -127,8 +137,8 @@ withDefaults(defineProps<{
 .topic-ledger__module {
   margin-top: 36px;
   padding: 22px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  background: rgba(15, 23, 42, 0.56);
+  border: 1px solid var(--topic-ledger-module-border);
+  background: var(--topic-ledger-module-bg);
 }
 
 @media (max-width: 700px) {
