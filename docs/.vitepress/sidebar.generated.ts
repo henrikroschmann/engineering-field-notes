@@ -8,6 +8,10 @@ export const sidebar = [
       {
         "text": "After Hours Architecture — AI is Eating Our Jobs",
         "link": "/topics/after-hours/after-hours-architecture-22"
+      },
+      {
+        "text": "After Hours Architecture — Friday Briefing",
+        "link": "/topics/after-hours/after-hours-architecture-23"
       }
     ]
   },
