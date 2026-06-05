@@ -69,6 +69,10 @@ export const sidebar = [
       {
         "text": "Container Network Overlay Overhead",
         "link": "/topics/networking/container-network-overlay"
+      },
+      {
+        "text": "How API Gateways Enforce Rate Limits Without Becoming the Bottleneck",
+        "link": "/topics/networking/gateway-rate-limit"
       }
     ]
   }
